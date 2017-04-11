@@ -1,0 +1,16 @@
+#!/bin/bash
+
+: <<'man_set'
+-e will exit as soon as any command fails
+-x will output any executed command in the script
+-u will refuse unbound variable (undefined)
+-o pipefail will return the exit status code of any command that fails in a piped chain
+ex: `ls | grep test | false`
+
+long story short, you'd better add this `set -exuo pipefail` at the beginning of all your scripts!
+it will make your bash scripts more robust
+man_set
+
+set -exuo pipefail
+
+docker-compose run --user $UID --rm --entrypoint composer php-cli $@

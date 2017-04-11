@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -exuo pipefail
+
+docker-compose run --user $UID --rm php-cli bin/console $@

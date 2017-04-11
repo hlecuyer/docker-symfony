@@ -18,6 +18,15 @@ services:
             - ./logs/symfony:/var/www/symfony/app/logs
         links:
             - db
+    php-cli:
+        build: ./php-cli
+        volumes:
+            - ./symfony:/var/www/symfony
+            - ./logs/symfony:/var/www/symfony/app/logs
+        links:
+            - db
+        working_dir: /var/www/symfony
+        entrypoint: php
     nginx:
         build: ./nginx
         ports:

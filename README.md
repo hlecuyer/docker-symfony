@@ -8,15 +8,27 @@ Just a little Docker POC in order to have a complete stack for running Symfony i
 
 # Installation
 
-First, clone this repository:
+First, install [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/)
+
+Then choose one of the following:
+ - Clone this repository:
 
 ```bash
 $ git clone git@github.com:eko/docker-symfony.git
 ```
+```bash
+$ docker run --rm --interactive --tty --user $UID --volume $PWD:/code --workdir /code roukmoute/symfony-installer new symfony
+```
+then 
+```bash
+$ sudo chmod -R 777 symfony
+```
 
-Next, put your Symfony application into `symfony` folder and do not forget to add `symfony.dev` in your `/etc/hosts` file.
+ - Or put your Symfony application into `symfony` folder.
+ 
+Do not forget to add the line `127.0.0.1   symfony.dev` in your `/etc/hosts` file.
 
-Make sure you adjust `database_host` in `parameters.yml` to the database container alias "db"
+Make sure you replace the value of `database_host` in `symfony/app/config/parameters.yml` and `symfony/app/config/parameters.yml.dist` to the database container alias "db"
 
 Then, run:
 
@@ -25,6 +37,24 @@ $ docker-compose up
 ```
 
 You are done, you can visit your Symfony application on the following URL: `http://symfony.dev` (and access Kibana on `http://symfony.dev:81`)
+
+You can access the symfony console via `bin/cli`;
+
+Exemple:
+
+```bash
+    $ bin/cli doctrin:migration:migrate
+```
+
+You can access composer via `bin/composer`;
+```bash
+    $ bin/composer install
+```
+
+You can access php via `bin/php`;
+```bash
+    $ bin/php yout_script.php
+```
 
 _Note :_ you can rebuild all Docker images by running:
 
