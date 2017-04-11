@@ -10,12 +10,16 @@ Just a little Docker POC in order to have a complete stack for running Symfony i
 
 First, install [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/)
 
-Then choose one of the following:
- - Clone this repository:
+Clone this repository:
 
 ```bash
 $ git clone git@github.com:eko/docker-symfony.git
 ```
+
+Then choose one of the following:
+
+ - Create new project with the following instructions
+
 ```bash
 $ docker run --rm --interactive --tty --user $UID --volume $PWD:/code --workdir /code roukmoute/symfony-installer new symfony
 ```
