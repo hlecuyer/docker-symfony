@@ -47,3 +47,14 @@ services:
         volumes_from:
             - php
             - nginx
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:4.6
+        ports:
+            - 8090:80
+        links:
+            - db
+        environment:
+            - PMA_HOST=db
+            - PMA_USER=root
+            - PMA_PASSWORD=root
