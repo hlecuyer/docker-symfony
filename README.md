@@ -13,7 +13,7 @@ First, install [docker](https://docs.docker.com/engine/installation/) and [docke
 Clone this repository:
 
 ```bash
-$ git clone git@github.com:eko/docker-symfony.git
+$ git clone https://github.com/hlecuyer/docker-symfony.git
 ```
 
 Then choose one of the following:
@@ -47,7 +47,7 @@ You can access the symfony console via `bin/cli`;
 Exemple:
 
 ```bash
-    $ bin/cli doctrin:migration:migrate
+    $ bin/cli doctrine:migration:migrate
 ```
 
 You can access composer via `bin/composer`;
